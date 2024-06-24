@@ -1,28 +1,124 @@
 /* Custom Properties */
 
 :root {
-	--first-color: rgb(255, 98, 0);
-	--first-alpha-color: rgba(255, 98, 0, 0.75);
+	--first-color: rgb(218, 165, 32);
+	--first-alpha-color: rgba(218, 165, 32, 0.75);
 	--second-color: rgb(12, 15, 17);
 	--second-alpha-color: rgba(12, 15, 17, 0.75);
-	--third-color: rgb(245, 245, 245);
-	--third-alpha-color: rgba(245, 245, 245, 0.75);
+	--third-color: rgb(33, 37, 41);
+	--third-alpha-color: rgba(33, 37, 41, 0.75);
 
-	--link-color: rgb(234, 54, 1);
-	--link-alpha-color: rgba(234, 54, 1, 0.75);
+	--link-color: rgb(145, 145, 145);
+	--link-alpha-color: rgba(145, 145, 145, 0.75);
 
-	--bg-color: rgb(33, 37, 41);
-	--bg-alpha-color: rgba(33, 37, 41, 0.75);
+	--bg-color: rgb(245, 245, 245);
+	--bg-alpha-color: rgba(245, 245, 245, 0.75);
 }
 
 /* Reset Styles*/
+
 body {
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Montserrat', sans-serif;
+}
+
+a {
+	text-decoration: none;
+	color: var(--link-color);
+	transition: all 0.3s ease-out;
+}
+
+a:hover {
+	color: var(--first-color);
 }
 
 /*  Bootstrap Styles */
 
+.bg-dark {
+	background-color: var(--second-color) !important;
+}
+
+.copyright {
+	color: var(--link-color);
+}
+
+.dropdown-item {
+	color: var(--first-color);
+	font-weight: 600;
+	transition: all 0.3s ease-out;
+}
+
+.dropdown-item:hover {
+	color: var(--third-color);
+	font-weight: 600;
+}
+
+.navbar-brand img {
+	width: auto;
+	height: 5rem;
+}
+
+.navbar-dark .navbar-toggler {
+	--bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 245, 245, 245%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+	transition: all 0.3s ease-out;
+}
+
+.navbar-dark .navbar-toggler:hover {
+	--bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28218, 165, 32%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+	opacity: 0.75;
+}
+
+.nav-item {
+	transition: all 0.3s ease-out;
+}
+
+.nav-item:hover {
+	background-color: var(--first-alpha-color);
+}
+
+.nav-link {
+	margin-left: 0.5rem;
+	color: var(--first-color);
+	font-size: 1.15rem;
+	font-weight: 600;
+}
+
+.nav-link:hover {
+	color: var(--bg-color);
+}
+
 /* My Styles */
+
+.bg-alpha-color {
+	background-color: var(--second-alpha-color);
+}
+
+.bg-gradient-dark {
+	background-color: rgb(36, 36, 36, 1);
+	background-image: linear-gradient(
+		135deg,
+		rgba(12, 15, 17, 0.92),
+		rgb(36, 36, 36, 1)
+	);
+}
+
+.bg-hero-image {
+	background-image: var(--bg-image);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+
+.bg-third-color {
+	background-color: var(--third-color);
+}
+
+.img-fluid {
+	filter: drop-shadow(1rem 1rem 1rem black);
+}
+
+.text-first-color {
+	color: var(--first-color);
+}
 
 /* X-Small devices (portrait phones, less than 576px) */
 /* No media query for `xs` since this is the default in Bootstrap */
@@ -37,6 +133,9 @@ body {
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
+	.nav-item:hover {
+		background-color: transparent;
+	}
 }
 
 /* X-Large devices (large desktops, 1200px and up) */
