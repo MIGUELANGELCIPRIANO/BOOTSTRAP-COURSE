@@ -1,6 +1,6 @@
 # BOOTSTRAP-COURSE
 
-<img width="50%" src="" />
+<img width="50%" src="./src/public/img/bootstrap-course.png" />
 
 ## INTRODUCTION
 
