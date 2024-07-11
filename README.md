@@ -33,11 +33,17 @@ https://support.google.com
 
 https://myaccount.google.com
 
-7. Go to "Security" => "How you sign in to Google" => "2-Step Verification" => "App passwords".
+6. Go to "Security", activate 2-step verification and perform the necessary verifications for your account.
 
-8. Create an "App password".
+7. Create an **App password** through the following link.
 
-9. Create an .env file inside ./BOOTSTRAP-COURSE and replace `googleaccountemail@gmail.com`, `App password` and `addressee@example.com` with the API credentials.
+https://myaccount.google.com/apppasswords
+
+8. Note: If Google indicates that this option is not enabled for your account after security checks, you may have to wait a few days.
+
+9. To verify or delete your **App password** go to "Security" => "How you sign in to Google" => "2-Step Verification" => "App passwords".
+
+10. Create an .env file inside ./BOOTSTRAP-COURSE and replace `googleaccountemail@gmail.com`, `App password` and `addressee@example.com` with the API credentials.
 
 ```js
 EMAIL_USER = 'googleaccountemail@gmail.com'
@@ -48,8 +54,8 @@ PORT = 3000
 
 ## EXECUTION
 
-7. Use the **npm** package manager to run.
-8. Execute the command from the terminal located at ./BOOTSTRAP-COURSE.
+11. Use the **npm** package manager to run.
+12. Execute the command from the terminal located at ./BOOTSTRAP-COURSE.
 
 ```shell
 npm run dev
