@@ -34,15 +34,12 @@ https://support.google.com
 https://myaccount.google.com
 
 6. Go to "Security", activate 2-step verification and perform the necessary verifications for your account.
-
 7. Create an **App password** through the following link.
 
 https://myaccount.google.com/apppasswords
 
 8. Note: If Google indicates that this option is not enabled for your account after security checks, you may have to wait a few days.
-
 9. To verify or delete your **App password** go to "Security" => "How you sign in to Google" => "2-Step Verification" => "App passwords".
-
 10. Create an .env file inside ./BOOTSTRAP-COURSE and replace `googleaccountemail@gmail.com`, `App password` and `addressee@example.com` with the API credentials.
 
 ```js
