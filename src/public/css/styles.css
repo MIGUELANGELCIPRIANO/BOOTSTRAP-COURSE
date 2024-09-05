@@ -55,6 +55,12 @@ body {
 	transition: all 0.3s ease-out;
 }
 
+.dropdown-item.active,
+.dropdown-item:active {
+	color: var(--bg-color);
+	background-color: transparent;
+}
+
 .dropdown-item:hover,
 .dropdown-item:focus {
 	color: var(--bg-color);
