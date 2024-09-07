@@ -38,6 +38,10 @@ body {
 	font-family: 'Montserrat', sans-serif;
 }
 
+html {
+	scroll-padding-top: 98px;
+}
+
 /*  Bootstrap Styles */
 
 .carousel-caption {
