@@ -96,6 +96,51 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	window.addEventListener('scroll', handleScroll)
 
+	// Button Language
+	// const langButtons = document.querySelectorAll('[data-language]')
+	// const textsToChange = document.querySelectorAll('[data-section]')
+
+	// langButtons.forEach((button) => {
+	// 	button.addEventListener('click', () => {
+	// 		fetch(`./languages/${button.dataset.language}.json`)
+	// 			.then((res) => res.json())
+	// 			.then((data) => {
+	// 				textsToChange.forEach((element) => {
+	// 					const section = element.dataset.section
+	// 					const value = element.dataset.value
+
+	// 					element.innerHTML = data[section][value]
+	// 				})
+	// 			})
+	// 	})
+	// })
+
+	// Button Language II
+	const langButtons = document.querySelectorAll('[data-language]')
+	const textsToChange = document.querySelectorAll('[data-section]')
+	const fieldsToChange = document.querySelectorAll('[data-field]')
+
+	langButtons.forEach((button) => {
+		button.addEventListener('click', () => {
+			fetch(`./languages/${button.dataset.language}.json`)
+				.then((res) => res.json())
+				.then((data) => {
+					textsToChange.forEach((element) => {
+						const section = element.dataset.section
+						const value = element.dataset.value
+						element.innerHTML = data[section][value]
+					})
+
+					fieldsToChange.forEach((element) => {
+						const field = element.dataset.field
+						if (data.contact[`form-${field}Placeholder`]) {
+							element.placeholder = data.contact[`form-${field}Placeholder`]
+						}
+					})
+				})
+		})
+	})
+
 	// Form Validation Code
 	;(() => {
 		'use strict'
