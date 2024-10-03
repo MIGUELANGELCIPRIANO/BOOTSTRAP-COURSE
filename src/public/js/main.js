@@ -1,4 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
+	// Hide page content while applying the language
+	document.body.classList.add('hidden')
+
 	// Upper Body Padding Function Navbar Height
 	const navbarHeight = document.querySelector('.navbar')?.offsetHeight || 0
 	document.body.style.paddingTop = navbarHeight + 'px'
@@ -96,50 +99,54 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	window.addEventListener('scroll', handleScroll)
 
-	// Button Language
-	// const langButtons = document.querySelectorAll('[data-language]')
-	// const textsToChange = document.querySelectorAll('[data-section]')
+	// Detect language change and save to localStorage
+	document.querySelectorAll('.lang-button').forEach((button) => {
+		button.addEventListener('click', function () {
+			const selectedLang = this.querySelector('img').dataset.language
 
-	// langButtons.forEach((button) => {
-	// 	button.addEventListener('click', () => {
-	// 		fetch(`./languages/${button.dataset.language}.json`)
-	// 			.then((res) => res.json())
-	// 			.then((data) => {
-	// 				textsToChange.forEach((element) => {
-	// 					const section = element.dataset.section
-	// 					const value = element.dataset.value
+			localStorage.setItem('selectedLanguage', selectedLang)
 
-	// 					element.innerHTML = data[section][value]
-	// 				})
-	// 			})
-	// 	})
-	// })
-
-	// Button Language II
-	const langButtons = document.querySelectorAll('[data-language]')
-	const textsToChange = document.querySelectorAll('[data-section]')
-	const fieldsToChange = document.querySelectorAll('[data-field]')
-
-	langButtons.forEach((button) => {
-		button.addEventListener('click', () => {
-			fetch(`./languages/${button.dataset.language}.json`)
-				.then((res) => res.json())
-				.then((data) => {
-					textsToChange.forEach((element) => {
-						const section = element.dataset.section
-						const value = element.dataset.value
-						element.innerHTML = data[section][value]
-					})
-
-					fieldsToChange.forEach((element) => {
-						const field = element.dataset.field
-						if (data.contact[`form-${field}Placeholder`]) {
-							element.placeholder = data.contact[`form-${field}Placeholder`]
-						}
-					})
-				})
+			applyLanguage(selectedLang)
 		})
 	})
+
+	// On page load, read language from localStorage
+	window.addEventListener('load', function () {
+		const savedLanguage = localStorage.getItem('selectedLanguage')
+
+		if (savedLanguage) {
+			applyLanguage(savedLanguage).then(() => {
+				document.body.classList.remove('hidden')
+			})
+		} else {
+			applyLanguage('en').then(() => {
+				document.body.classList.remove('hidden')
+			})
+		}
+	})
+
+	// Language function
+	function applyLanguage(lang) {
+		return fetch(`./languages/${lang}.json`)
+			.then((res) => res.json())
+			.then((data) => {
+				const textsToChange = document.querySelectorAll('[data-section]')
+				const fieldsToChange = document.querySelectorAll('[data-field]')
+
+				textsToChange.forEach((element) => {
+					const section = element.dataset.section
+					const value = element.dataset.value
+					element.innerHTML = data[section][value]
+				})
+
+				fieldsToChange.forEach((element) => {
+					const field = element.dataset.field
+					if (data.contact && data.contact[`form-${field}Placeholder`]) {
+						element.placeholder = data.contact[`form-${field}Placeholder`]
+					}
+				})
+			})
+	}
 
 	// Form Validation Code
 	;(() => {
