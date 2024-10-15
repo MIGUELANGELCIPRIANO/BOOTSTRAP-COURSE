@@ -5,7 +5,10 @@
         "services": "Servicios ",
         "projects": "Proyectos",
         "industries": "Industrias",
-        "contact": "Contacto"
+        "contact": "Contacto",
+        "languages": "Idiomas",
+        "spanish": "Español",
+        "english": "Inglés"
     },
     "home": {
         "heading1": "Soluciones de Ingeniería Militar, Naval y Aeronáutica",
@@ -97,7 +100,7 @@
         "paragraph3": "Gracias por su paciencia y por elegir DI-VERA GROUP."
     },
     "footer": {
-        "contactInfo": "Para más información, por favor contáctenos en <a href=\"mailto@diveragroup.com\">info@diveragroup.com</a>",
+        "contactInfo": "Para más información, por favor contáctenos en <a href=\"mailto:info@diveragroup.com\">info@diveragroup.com</a>",
         "copyright": "Copyright © 2024 DI-VERA Group.",
         "rightsReserved": "Todos los Derechos Reservados."
     }

@@ -5,7 +5,10 @@
 		"services": "Services ",
 		"projects": "Projects",
 		"industries": "Industries",
-		"contact": "Contact us"
+		"contact": "Contact us",
+		"languages": "Languages",
+		"spanish": "Spanish",
+		"english": "English"
 	},
 	"home": {
 		"heading1": "Military, Naval, and Aeronautical Engineering Solutions",
