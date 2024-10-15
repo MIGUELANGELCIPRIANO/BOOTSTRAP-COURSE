@@ -99,18 +99,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	window.addEventListener('scroll', handleScroll)
 
-	// Detect language change and save to localStorage
-	document.querySelectorAll('.lang-button').forEach((button) => {
-		button.addEventListener('click', function () {
-			const selectedLang = this.querySelector('img').dataset.language
+	// Language dropdown selection
+	const langSelectors = document.querySelectorAll('.lang-selector')
+
+	langSelectors.forEach((selector) => {
+		selector.addEventListener('click', function (e) {
+			e.preventDefault()
+			const selectedLang = this.getAttribute('data-lang')
 
 			localStorage.setItem('selectedLanguage', selectedLang)
-
 			applyLanguage(selectedLang)
 		})
 	})
 
-	// On page load, read language from localStorage
+	// Load the saved language on page load
 	window.addEventListener('load', function () {
 		const savedLanguage = localStorage.getItem('selectedLanguage')
 
@@ -119,7 +121,7 @@ document.addEventListener('DOMContentLoaded', function () {
 				document.body.classList.remove('hidden')
 			})
 		} else {
-			applyLanguage('en').then(() => {
+			applyLanguage('es').then(() => {
 				document.body.classList.remove('hidden')
 			})
 		}
